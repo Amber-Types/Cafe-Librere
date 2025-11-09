@@ -1,0 +1,117 @@
+:root{
+  --ink:#1f1a17;
+  --paper:#fff7ef;
+  --latte:#e8d8c9;
+  --cocoa:#6b4f45;
+  --accent:#b07d5e;
+  --leaf:#267a6e;
+  --focus:#0a7bc2;
+  --shadow:0 6px 30px rgba(31,26,23,.12);
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark){
+  :root{--paper:#12100f; --ink:#f3ede6; --latte:#1f1a17; --cocoa:#d8c2b5; --accent:#d7a37f}
+  body{background:var(--paper); color:var(--ink)}
+}
+*{box-sizing:border-box}
+html,body{margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:var(--paper); color:var(--ink)}
+h1,h2,h3{font-family:"Playfair Display", Georgia, serif; line-height:1.2; margin:0 0 .5rem}
+p{margin:.5rem 0 1rem}
+a{color:inherit}
+.container{max-width:1100px; margin:0 auto; padding:0 1rem}
+
+/* Readable background outside cards */
+body::before{content:""; position:fixed; inset:0; background-image: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)), url(https://i.pinimg.com/564x/58/33/12/5833122bf132c4eea213717ca92aa296.jpg); background-size:cover; background-position:center; z-index:-1; filter:saturate(110%)}
+.outside-text, .lead-quote{color:#f8f5f0; text-shadow:0 1px 2px rgba(0,0,0,.35)}
+
+/* Header */
+.site-header{position:sticky; top:0; z-index:100; background:rgba(0,0,0,.25); backdrop-filter:saturate(130%) blur(8px); border-bottom:1px solid rgba(255,255,255,.12)}
+.nav{display:flex; align-items:center; justify-content:space-between; padding:.6rem 0}
+.brand{display:flex; align-items:center; gap:.6rem; text-decoration:none}
+.brand-logo{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,var(--cocoa),var(--accent)); box-shadow:var(--shadow); display:grid; place-items:center; color:white; font-weight:700}
+.brand-name{font-weight:700}
+.nav-links{display:flex; gap:1rem}
+.nav-links a{padding:.4rem .7rem; border-radius:999px; text-decoration:none}
+.nav-links a:hover, .nav-links a:focus{outline:none; background:rgba(255,255,255,.1)}
+.actions{display:flex; gap:.6rem}
+.button{appearance:none; border:1px solid rgba(255,255,255,.18); background:var(--ink); color:var(--paper); padding:.55rem .9rem; border-radius:12px; font-weight:600; box-shadow:var(--shadow); cursor:pointer}
+.button.secondary{background:transparent; color:#f8f5f0}
+.button:hover{transform:translateY(-1px)}
+.menu-toggle{display:none}
+
+/* Hero */
+.hero{display:grid; grid-template-columns:1.1fr .9fr; gap:2rem; align-items:center; padding:2.2rem 0 2.8rem}
+.hero-card{background:linear-gradient(180deg,var(--latte), transparent); border:1px solid rgba(0,0,0,.06); border-radius:24px; padding:2rem; box-shadow:var(--shadow)}
+.kicker{color:var(--leaf); font-weight:700; letter-spacing:.06em; text-transform:uppercase; font-size:.75rem}
+.title{font-size:clamp(2rem, 5vw, 3.25rem)}
+.sub{font-size:1.05rem; opacity:.95}
+.hero-img{border-radius:22px; overflow:hidden; box-shadow:var(--shadow)}
+.hero-img img{width:100%; height:100%; object-fit:cover; display:block}
+.badges{display:flex; gap:1rem; margin-top:1rem; flex-wrap:wrap}
+.badge{background:var(--paper); border:1px dashed rgba(0,0,0,.15); padding:.4rem .7rem; border-radius:999px; font-size:.85rem}
+
+/* Sections */
+section{padding:3rem 0}
+.section-head{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:1.2rem}
+.section-head h2{font-size:2rem}
+.section-head p{opacity:.95}
+.lead-quote{max-width:60ch}
+
+/* Make all section headers readable over bg */
+.section-head.outside-text{color:#f8f5f0}
+
+/* Menu grid */
+.menu-grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:1rem}
+.card{background:var(--paper); border:1px solid rgba(0,0,0,.08); border-radius:18px; padding:1rem; box-shadow:var(--shadow)}
+.menu-list{list-style:none; margin:0; padding:0}
+.item{display:grid; grid-template-columns:1fr auto; align-items:baseline; gap:.75rem; padding:.6rem 0; border-bottom:1px dashed rgba(0,0,0,.1)}
+.item:last-child{border-bottom:0}
+.item .flavor{font-size:1rem}
+.price{font-variant-numeric:tabular-nums; font-weight:700}
+
+/* Tea accent */
+#tea-title{color:var(--leaf)}
+.subtext{font-size:.9rem; font-style:italic; opacity:.8; margin-top:-.3rem}
+.menu-list .item.tea{border-left:4px solid var(--leaf); padding-left:.6rem}
+
+/* Carousel */
+.carousel{position:relative; border-radius:18px; overflow:hidden; box-shadow:var(--shadow)}
+.carousel .slides{display:grid; grid-auto-flow:column; grid-auto-columns:100%; transition:transform .5s ease}
+.carousel img{width:100%; height:360px; object-fit:cover; display:block}
+.carousel-controls{position:absolute; inset:auto 0 0 0; display:flex; justify-content:space-between; padding:.5rem}
+.carousel-controls button{background:rgba(0,0,0,.45); color:#fff; border:0; border-radius:10px; padding:.4rem .7rem; cursor:pointer}
+
+/* How it works */
+.steps{display:grid; grid-template-columns:repeat(3,1fr); gap:1rem}
+.step{background:var(--paper); border:1px solid rgba(0,0,0,.08); border-radius:14px; padding:1rem}
+
+/* Cards 3 */
+.cards-3{display:grid; grid-template-columns:repeat(3,1fr); gap:1rem}
+
+/* Form */
+.form label{display:grid; gap:.35rem; font-size:.95rem}
+.form input{padding:.55rem .7rem; border-radius:10px; border:1px solid rgba(0,0,0,.15); background:#fff}
+.form .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:.8rem}
+.form-actions{margin-top:1rem}
+
+/* Visit */
+.foot-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:1rem}
+
+/* Footer */
+.site-footer{background:rgba(0,0,0,.25); color:#f8f5f0; border-top:1px solid rgba(255,255,255,.12); padding:1.2rem 0; text-align:center}
+
+/* Utilities */
+.sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+.skip-link{position:absolute; left:-999px; top:auto; background:#000; color:#fff; padding:.5rem .75rem; border-radius:.5rem}
+.skip-link:focus{left:.5rem; top:.5rem; z-index:999}
+
+/* Responsive */
+@media (max-width: 900px){
+  .nav-links{position:fixed; right:1rem; top:64px; background:rgba(0,0,0,.8); backdrop-filter:blur(6px); padding:.6rem; border-radius:12px; display:none; flex-direction:column}
+  .nav-links.open{display:flex}
+  .menu-toggle{display:inline-flex; align-items:center; justify-content:center; padding:.4rem .7rem; border-radius:10px; border:1px solid rgba(255,255,255,.25); background:transparent; color:#f8f5f0}
+  .hero{grid-template-columns:1fr}
+  .menu-grid{grid-template-columns:1fr}
+  .steps,.cards-3,.foot-grid{grid-template-columns:1fr}
+  .form .grid-3{grid-template-columns:1fr}
+}
